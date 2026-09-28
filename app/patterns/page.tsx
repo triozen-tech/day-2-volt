@@ -15,6 +15,9 @@ import PolaroidWall from "@/components/patterns/PolaroidWall";
 import Faq from "@/components/patterns/Faq";
 import WaveDivider from "@/components/patterns/WaveDivider";
 import WordmarkFooter from "@/components/patterns/WordmarkFooter";
+import StartLightsLoader from "@/components/patterns/StartLightsLoader";
+import ColourLab, { PageGlow } from "@/components/patterns/ColourLab";
+import SizePicker from "@/components/patterns/SizePicker";
 
 // ─────────────────────────────────────────────────────────────
 //  /patterns — a catalogue of the NEW pattern components with demo images.
@@ -24,6 +27,8 @@ import WordmarkFooter from "@/components/patterns/WordmarkFooter";
 export const metadata: Metadata = { title: "Pattern library" };
 
 const img = (n: string) => `/images/${n}.webp`;
+// cut-out demo product (the Day 2 shoes: any set of same-angle cut-outs works)
+const cutout = (n: string) => `/images/volt/web/${n}.webp`;
 const photos = ["studio-1", "road-1", "studio-2", "road-2", "studio-3", "road-3", "studio-4", "road-4", "studio-5"].map(img);
 
 function Label({ n, name, file }: { n: number; name: string; file: string }) {
@@ -43,6 +48,7 @@ export default function Patterns() {
       <SmoothScroll />
       <Animations />
       <Cursor />
+      <PageGlow />
       <NavPill logo="Brand" links={[{ label: "Home", href: "#" }, { label: "Shop", href: "#" }, { label: "About", href: "#" }, { label: "Contact", href: "#" }]} cta={{ label: "Cart (2)", href: "#" }} />
 
       <VariantHero
@@ -166,6 +172,51 @@ export default function Patterns() {
       />
       <Label n={10} name="FAQ" file="Faq.tsx" />
 
+      <div className="container-x">
+        <div className="relative h-[min(70vh,620px)] overflow-hidden rounded-[var(--radius)] border border-line">
+          <StartLightsLoader name="BRAND" inline />
+        </div>
+      </div>
+      <Label n={11} name="Race-start loader (preview loops here; on a site it is the full-screen loader, &at= ready)" file="StartLightsLoader.tsx" />
+
+      <ColourLab
+        model="Model One"
+        price="₹12,999"
+        specs={[
+          { label: "Weight", value: "212 g" },
+          { label: "Drop", value: "8 mm" },
+          { label: "Plate", value: "Carbon" },
+          { label: "Foam", value: "Supercritical" },
+        ]}
+        colourways={[
+          { id: "orange", name: "Orange", color: "#ff5a1f", image: cutout("cw-ember"), note: "Warm and loud" },
+          { id: "blue", name: "Blue", color: "#6ec4ff", image: cutout("cw-ice"), note: "Cool and calm" },
+          { id: "pink", name: "Pink", color: "#ff2fa6", image: cutout("cw-pulse"), note: "Bright magenta" },
+          { id: "white", name: "White", color: "#e6ebe4", image: cutout("cw-ghost"), note: "Clean white" },
+          { id: "lime", name: "Lime", color: "#c8ff1a", image: cutout("cw-lime"), note: "Neon green" },
+        ]}
+        cta={{ label: "Choose size", href: "#fit" }}
+      />
+      <Label n={12} name="Colour Lab: pinned colour switcher, the page glow follows (scroll through it)" file="ColourLab.tsx · PageGlow" />
+
+      <SizePicker
+        model="Model One · Lime"
+        image={cutout("cw-lime")}
+        sizes={["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]}
+        soldOut={["6.5", "11.5"]}
+        low={{ "9": 3 }}
+        sizeUnit="UK"
+        price="₹12,999"
+        demo={{ first: "8", size: "9", width: "Wide" }}
+        measure={{ from: 6, base: 22.4, step: 0.85 }}
+        perks={[
+          { title: "Free delivery", text: "Across India, in 2–4 days" },
+          { title: "30-day trial", text: "Not right? Send it back." },
+          { title: "Free size exchange", text: "We pick up, you lace up" },
+        ]}
+      />
+      <Label n={13} name="Hands-free size picker (plays a demo by itself on screen)" file="SizePicker.tsx" />
+
       <WordmarkFooter
         name="Brand"
         logo="BRAND"
@@ -177,7 +228,7 @@ export default function Patterns() {
         ]}
         note="Concept website"
       />
-      <Label n={11} name="Wordmark footer" file="WordmarkFooter.tsx" />
+      <Label n={14} name="Wordmark footer" file="WordmarkFooter.tsx" />
     </>
   );
 }

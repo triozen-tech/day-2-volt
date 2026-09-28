@@ -81,6 +81,9 @@ CLAUDE.md               ← the playbook Claude Code follows
 | `FrameHero` | Full-screen video that plays as you scroll, with captions |
 | `FrameScrub` | Pinned product video (spin / exploded view) with callouts |
 | `VariantHero` | Colour switcher: product + glow + big word change colour |
+| `ColourLab` + `PageGlow` | Pinned colour switcher that follows the scroll: product, outlined name, labels and a page-wide glow change together (record-mode safe) |
+| `StartLightsLoader` | Race-start loader: lights on one by one, all go, a slanted bar sweeps the page open (fixed 2.5 s, `&at=` ready) |
+| `SizePicker` | Size grid + width + stock + Add to bag, plays a hands-free demo on screen / during a record hold |
 | `CurvedGallery` | Endless image row bent on a curve, drifting |
 | `ExpandingPanels` | Image strips; one opens wide, auto-advances |
 | `ProductShowcase` | One big product at a time with sizes/colours, auto-swaps |

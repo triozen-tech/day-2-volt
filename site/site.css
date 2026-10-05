@@ -333,7 +333,7 @@ body {
 .is-static .streak {
   display: none;
 }
-@media (prefers-reduced-motion: reduce) {
+html.is-static {
   .hero-zoom,
   .streak,
   .hero-glow,
